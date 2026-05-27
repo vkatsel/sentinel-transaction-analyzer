@@ -1,0 +1,21 @@
+# --- JetBrains IDEs ---
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# --- VS Code ---
+.vscode/
+*.code-workspace
+
+# --- Temporary data and logs ---
+*.log
+*.bak
+*.sql.bak
+pg_dump_*.sql
+
+# --- Security ---
+.env
+*.passwd
+*.env.local
+credentials.json
