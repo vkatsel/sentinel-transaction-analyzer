@@ -12,10 +12,11 @@ CREATE TABLE customers (
 CREATE TABLE fraud_rules (
     rule_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     rule_name VARCHAR UNIQUE NOT NULL,
-    rule_type VARCHAR NOT NULL CHECK (rule_type IN ('VELOCITY', 'LOCATION', 'VOLUME', 'BLACKLIST')), ---Maybe some validation here?---
+    rule_type VARCHAR NOT NULL CHECK (rule_type IN ('VELOCITY', 'LOCATION', 'VOLUME', 'BLACKLIST', 'AUTOMATED')),
     threshold_value INT NOT NULL ,
     is_active BOOLEAN DEFAULT TRUE
 );
+
 
 CREATE TABLE audit_log (
     audit_id BIGINT GENERATED ALWAYS AS IDENTITY  PRIMARY KEY,
