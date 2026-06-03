@@ -39,6 +39,15 @@ The database is designed to ensure data integrity and fast execution of analytic
 
 ---
 
+## 🔄 Entity Management & Onboarding
+
+To ensure data integrity and prevent "orphan" records, the system utilizes dedicated stored procedures for adding new entities:
+
+- **`add_customer`**, **`add_account`**, **`add_transaction`**: Individual procedures to safely insert records with basic validation.
+- **`onboard_customer`**: A comprehensive, transaction-safe onboarding procedure. It atomically creates a new customer, generates an IBAN-like account number, creates a base account, generates a hashed card number, and links it all together. If any step fails, the entire process is rolled back (ACID compliant).
+
+---
+
 ## ⚙️ Key Business Logic & Fraud Detection Mechanism
 
 1. **Real-time Risk Evaluation (Triggers)**:
